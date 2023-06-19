@@ -1,63 +1,72 @@
 * {
+  /*Seletor universal*/
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /*Funciona para o calculo do tamanho da caixa*/
+
+  /*aqui estamos tirando o padrao que o navegador coloca e zerando tudo*/
 }
 
-.mentor {
-  font-family: "Staatliches", cursive;
-  font-weight: 400;
-}
-
-body {
-  background: #efefef;
+body,
+input,
+button,
+select,
+textarea {
   font-family: "Poppins", sans-serif;
+}
+body {
+  background: #e5e5e5; /*aqui é a cor do body*/
 }
 
 body::before {
-  content: "";
-
+  /* esse é a cor em cima de o Body que é identificada usando o before(antes  e tem o afeter que é apos (no fim da pagina))  */
+  content: ""; /* é obrigatorio colocar um conteudo quando for usar essa subclass*/
   width: 100%;
-  height: 436px;
+  height: 368px;
 
-  background: #535971;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -1; /*sobreposição para por ele atras dos conteudos*/
+  background: #121214;
 }
-
 .page {
-  width: 750px;
+  width: 736px;
   margin: auto;
 }
 
 header {
-  width: 354px;
-  margin-top: 128px;
+  width: 319px;
+  margin-top: 74px;
 }
-
 header h1 {
-  font-family: "Staatliches", cursive;
-  font-weight: normal;
-  font-size: 48px;
-  line-height: 60px;
-  color: #ffffff;
+  font-family: "Archivo", sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  color: white;
 
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
 
 header p {
-  font-size: 20px;
-  line-height: 30px;
-  color: #ffffff;
+  font-size: 16px;
+  line-height: 26px;
+
+  color: #42d3ff;
 }
 
 form {
-  margin-top: 58px;
-  background: #ffffff;
-  border-radius: 20px 20px 0 0;
-  padding: 64px;
+  margin-top: 38px;
+  background: #fafafc;
+  border-radius: 8px 8px 0 0;
+  min-height: 300px; /*minimo da altura*/
+
+  padding: 64px; /*preenchimento interno*/
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
 fieldset {
@@ -67,37 +76,27 @@ fieldset {
 .fieldset-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 
 fieldset legend {
-  font-family: "Staatliches", cursive;
-  font-weight: 400;
+  font-family: "Archivo", sans-serif;
+  font-weight: 600;
   font-size: 24px;
   line-height: 34px;
 
   width: 100%;
-  border-bottom: 1px solid #e6e6f0;
-
-  color: #535971;
-
-  padding-bottom: 16px;
-}
-fieldset h1 {
-  font-family: "Staatliches", cursive;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 34px;
-
-  color: #535971;
+  border-bottom: 1px solid #e6e6f0; /*para por uma borda so em baixo*/
+  padding-bottom: 16px; /*quando tiver um espaçamento dentro da borda utiliza o padding para dar um espaçamento*/
 }
 
 .input-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /*vai deixar o label em cima e o input em baixo / automaticamente o input vai pegar 100% da tela*/
 }
 
-.input-wrapper label {
+.input-wrapper label,
+.checkbox-wrapper label {
   font-size: 14px;
   line-height: 24px;
 
@@ -106,12 +105,11 @@ fieldset h1 {
   margin-bottom: 8px;
 }
 
-.input-wrapper span:hover {
-  color: #676372;
+.input-wrapper label span:hover {
+  color: #6c6a71;
 }
-
-.input-wrapper span {
-  margin-left: 5px;
+.input-wrapper label span {
+  margin-left: 12px;
 
   font-size: 12px;
   line-height: 20px;
@@ -119,9 +117,9 @@ fieldset h1 {
   color: #c1bccc;
 }
 
-.input-wrapper input {
-  box-sizing: border-box;
-
+.input-wrapper input,
+.input-wrapper textarea,
+.input-wrapper select {
   background: #fafafc;
 
   border: 1px solid #e6e6f0;
@@ -129,84 +127,119 @@ fieldset h1 {
 
   height: 56px;
   padding: 0 24px;
+
+  font-size: 16px;
+  line-height: 26px;
+
+  color: #6c6a71;
 }
 
-.input-wrapper-names {
+.input-wrapper textarea {
+  padding: 0;
+  height: 168px;
+}
+
+.input-wrapper select {
+  appearance: none; /*Para tirar a seta do select*/
+  -webkit-appearance: none; /*Chrome , Safari*/
+
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 10L12 14L16 10' stroke='%239C98A6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A"); /*é uma propriedade que serve para você colocar uma URL e falar qual imagem você que colocar ali / essa imagem esta formatada em base64 que é um jeito de colocar imagem em formato de texto */
+  background-repeat: no-repeat;
+  background-position: right 24px top 50%;
+}
+
+.col-3 {
   display: flex;
-
-  gap: 22px;
+  gap: 20px;
 }
 
-.input-wrapper-names input,
-.first-scheduling input,
-.second-scheduling input {
-  width: 300px;
+.col-3 > div:nth-child(1) {
+  /* o nth-child(numero da div que você deseja) serve para indicar a div que você quer / a > siginifica primeiro nival da div*/
+
+  width: 100%;
 }
 
-.mentor,
-.hours,
-.first,
-.second {
-  margin-top: 32px;
-
-  padding-bottom: 8px;
+.checkbox-wrapper {
+  position: relative; /*esse position esta relativezando o displat absolute pra dentro dessa caixa*/
 }
 
-.first,
-.second {
-  border-bottom: none;
+.checkbox-wrapper label {
+  /*Vai alinhar o checkbox e o label no centro*/
 
-  font-size: 20px;
-  line-height: 34px;
-  font-weight: 400;
-}
-
-.first-scheduling,
-.second-scheduling {
+  align-items: center;
   display: flex;
-
-  gap: 32px;
+  /*Esta deixando o label em margin 0*/
+  margin: 0;
+  gap: 16px;
 }
 
-.first-time,
-.second-time {
-  display: flex;
-  gap: 10px;
+.checkbox-wrapper input {
+  /*display: none; esta desaparecendo com o input*/
+  /*o botao nao pode estar com display none se não ele nao funciona na passagem pelas areas com o tab mas se colocar essa configuração ele vai ficar do tamanho do botão desejado e não vai aparecer / aparecendo so o que você configurou e vai funcionar no tab*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+
+  opacity: 0; /*esta deixando o botão invisivel*/
 }
 
-.first-time input,
-.second-time input {
-  width: 140px;
+.checkbox-wrapper label::before {
+  /*Configuração do botão do checkbox*/
+  content: "";
+
+  width: 24px;
+  height: 24px;
+  display: block;
+
+  border: 1px solid #e6e6f0;
+  border-radius: 8px;
+}
+
+.checkbox-wrapper input:checked + label::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1701_14)'%3E%3Cpath d='M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z' fill='%2342D3FF'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1701_14'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+}
+
+.checkbox-wrapper input:focus + label::before {
+  /*Para aparecer que esta selecionado a caixa do checkbox*/
+  outline: 2px solid black;
 }
 
 footer {
-  background: #535971;
-  height: 160px;
-  display: flex;
+  background: #f0f0f4;
+  height: 136px;
+
+  display: flex; /*o flex vai esticar tudo*/
   flex-direction: column;
 
-  padding: 50px 70px;
+  padding: 40px 64px;
 
-  margin-bottom: 366px;
+  margin-bottom: 100px;
 
-  border-radius: 0px 0px 20px 20px;
+  border-top: 1px solid #d6d6d6;
+
+  border-radius: 0 0 8px 8px;
 }
 
 footer .button {
   height: 56px;
-  background: #ff5374;
+  background: #04d361;
   color: white;
   border: 0;
-  border-radius: 20px;
+  border-radius: 8px;
 
-  font-family: "Staatliches", cursive;
+  font-family: "Archivo";
 
-  font-weight: 400;
-  font-size: 20px;
+  font-weight: 600;
+  font-size: 16px;
   line-height: 26px;
 }
 
-footer .button:hover{
+footer .button:hover {
+  background: #08a04c;
+}
 
-  background: #c9435e;
+input:invalid {
+  border: 1px solid #ff1010;
 }

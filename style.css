@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mentor {
+  font-family: "Staatliches", cursive;
+  font-weight: 400;
+}
+
+body {
+  background: #efefef;
+  font-family: "Poppins", sans-serif;
+}
+
+body::before {
+  content: "";
+
+  width: 100%;
+  height: 436px;
+
+  background: #535971;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.page {
+  width: 750px;
+  margin: auto;
+}
+
+header {
+  width: 354px;
+  margin-top: 128px;
+}
+
+header h1 {
+  font-family: "Staatliches", cursive;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 60px;
+  color: #ffffff;
+
+  margin-bottom: 18px;
+}
+
+header p {
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+}
+
+form {
+  margin-top: 58px;
+  background: #ffffff;
+  border-radius: 20px 20px 0 0;
+  padding: 64px;
+}
+
+fieldset {
+  border: none;
+}
+
+.fieldset-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+fieldset legend {
+  font-family: "Staatliches", cursive;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 34px;
+
+  width: 100%;
+  border-bottom: 1px solid #e6e6f0;
+
+  color: #535971;
+
+  padding-bottom: 16px;
+}
+fieldset h1 {
+  font-family: "Staatliches", cursive;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 34px;
+
+  color: #535971;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper label {
+  font-size: 14px;
+  line-height: 24px;
+
+  color: #4e4958;
+
+  margin-bottom: 8px;
+}
+
+.input-wrapper span:hover {
+  color: #676372;
+}
+
+.input-wrapper span {
+  margin-left: 5px;
+
+  font-size: 12px;
+  line-height: 20px;
+
+  color: #c1bccc;
+}
+
+.input-wrapper input {
+  box-sizing: border-box;
+
+  background: #fafafc;
+
+  border: 1px solid #e6e6f0;
+  border-radius: 8px;
+
+  height: 56px;
+  padding: 0 24px;
+}
+
+.input-wrapper-names {
+  display: flex;
+
+  gap: 22px;
+}
+
+.input-wrapper-names input,
+.first-scheduling input,
+.second-scheduling input {
+  width: 300px;
+}
+
+.mentor,
+.hours,
+.first,
+.second {
+  margin-top: 32px;
+
+  padding-bottom: 8px;
+}
+
+.first,
+.second {
+  border-bottom: none;
+
+  font-size: 20px;
+  line-height: 34px;
+  font-weight: 400;
+}
+
+.first-scheduling,
+.second-scheduling {
+  display: flex;
+
+  gap: 32px;
+}
+
+.first-time,
+.second-time {
+  display: flex;
+  gap: 10px;
+}
+
+.first-time input,
+.second-time input {
+  width: 140px;
+}
+
+footer {
+  background: #535971;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+
+  padding: 50px 70px;
+
+  margin-bottom: 366px;
+
+  border-radius: 0px 0px 20px 20px;
+}
+
+footer .button {
+  height: 56px;
+  background: #ff5374;
+  color: white;
+  border: 0;
+  border-radius: 20px;
+
+  font-family: "Staatliches", cursive;
+
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+footer .button:hover{
+
+  background: #c9435e;
+}
